@@ -1,0 +1,33 @@
+.menu {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa; /* Colore di sfondo del menu */
+  }
+  
+  .logo {
+    height: 40px; /* Altezza del logo */
+    margin-right: auto; /* Sposta il logo a sinistra e gli elementi del menu a destra */
+  }
+  
+  .menu-items {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .menu-items li {
+    margin-left: 20px;
+  }
+  
+  .menu-items a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .menu-items a.active {
+    text-decoration: underline;
+  }
+  
