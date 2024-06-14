@@ -1,11 +1,12 @@
 <nav class="menu">
     <img src="assets/logo.png" alt="Logo" class="logo">
     <ul class="menu-items">
-      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
-      <li><a routerLink="/chi-siamo" routerLinkActive="active">Chi Siamo</a></li>
-      <li><a routerLink="/contatti" routerLinkActive="active">Contatti</a></li>
-      <li><a routerLink="/eventi" routerLinkActive="active">Eventi</a></li>
-      <li><a routerLink="/progetti" routerLinkActive="active">Progetti</a></li>
+      <div class="selection-indicator" #indicator></div>
+      <li><a routerLink="/home" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Home</a></li>
+      <li><a routerLink="/chi-siamo" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Chi Siamo</a></li>
+      <li><a routerLink="/contatti" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Contatti</a></li>
+      <li><a routerLink="/eventi" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Eventi</a></li>
+      <li><a routerLink="/progetti" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Progetti</a></li>
     </ul>
   </nav>
   

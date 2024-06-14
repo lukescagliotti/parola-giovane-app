@@ -1,13 +1,18 @@
-.menu {
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
+  }
+  
+  .menu {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: #f8f9fa; /* Colore di sfondo del menu */
+    background-color: orange; /* Colore di sfondo arancione , trovare l'hex giusto*/
+    position: relative;
   }
   
   .logo {
-    height: 40px; /* Altezza del logo */
-    margin-right: auto; /* Sposta il logo a sinistra e gli elementi del menu a destra */
+    height: 40px;
+    margin-right: auto;
   }
   
   .menu-items {
@@ -15,19 +20,46 @@
     display: flex;
     margin: 0;
     padding: 0;
+    position: relative;
   }
   
   .menu-items li {
     margin-left: 20px;
+    position: relative;
   }
   
   .menu-items a {
     text-decoration: none;
-    color: #007bff;
+    color: purple; /* Scritte viola, trovare l'hex giusto */
     font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
+  }
+  
+  .menu-items a:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05); 
   }
   
   .menu-items a.active {
-    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.3); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.08); 
+  }
+  
+  .selection-indicator {
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: 0;
   }
   

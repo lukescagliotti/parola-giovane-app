@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EventiComponent } from './eventi.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 
 describe('EventiComponent', () => {
   let component: EventiComponent;
@@ -8,7 +9,11 @@ describe('EventiComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EventiComponent]
+      imports: [
+        EventiComponent,
+        MatSelectModule,
+        MatOptionModule
+      ]
     })
     .compileComponents();
     

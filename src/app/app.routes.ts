@@ -5,6 +5,8 @@ import { ChiSiamoComponent } from './pagine/chi-siamo/chi-siamo.component';
 import { ContattiComponent } from './pagine/contatti/contatti.component';
 import { EventiComponent } from './pagine/eventi/eventi.component';
 import { ProgettiComponent } from './pagine/progetti/progetti.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { ɵBrowserAnimationBuilder } from '@angular/animations';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,7 +18,8 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

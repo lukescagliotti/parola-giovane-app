@@ -1,0 +1,129 @@
+.my-10 {
+    margin: 10px 0;
+  }
+  
+  .flex {
+    display: flex;
+  }
+  
+  .justify-center {
+    justify-content: flex-start;
+  }
+  
+  .mese-container {
+    width: 70%;
+  }
+  
+  .mese-selettore {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .mese-selettore .freccia {
+    flex: 0 0 auto;
+  }
+  
+  .mese-selettore .mese {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+  
+  .mese-selettore button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    width: 100%;
+  }
+  
+  .giorni, .cubo {
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .cubo {
+    text-align: left;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    position: relative;
+    height: 150px;
+  }
+  
+  .cubo.grigio {
+    background-color: #e0e0e0;
+  }
+  
+  .cubo .numero-giorno {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .cubo .contenuto-giorno {
+    font-size: 0.9em;
+  }
+  
+  .bottoni-container {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .bottoni-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .bottone {
+    margin-bottom: 10px;
+    background-color: #FFA500; /* Sfondo arancione, trovare hex giusto */
+    color: #4B0082; /* Testo viola, trovare hex giusto */
+    width: 80%;
+    border: 1px solid #4B0082;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    position: relative;
+  }
+  
+  .bottone a {
+    text-decoration: none;
+    color: #4B0082;
+    font-weight: bold;
+    padding: 10px;
+    flex-grow: 1;
+    text-align: center;
+  }
+  
+  .bottone a:hover {
+    text-decoration: underline;
+  }
+  
+  .bottone-img {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 10px;
+    object-fit: contain;
+  }
+  

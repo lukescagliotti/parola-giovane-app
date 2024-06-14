@@ -1,1 +1,39 @@
-<p>eventi works!</p>
+<div class="my-10 flex">
+    <div class="mese-container">
+      <div class="mese-selettore">
+        <div class="freccia sinistra">
+          <button (click)="MesePrecedente()">&lt;</button>
+        </div>
+        <div class="mese">
+          <span>{{ giornoDefault }}</span>
+        </div>
+        <div class="freccia destra">
+          <button (click)="MeseSuccessivo()">&gt;</button>
+        </div>
+      </div>
+  
+      <div class="container">
+        <div class="giorni">Lunedi</div>
+        <div class="giorni">Martedi</div>
+        <div class="giorni">Mercoledi</div>
+        <div class="giorni">Giovedi</div>
+        <div class="giorni">Venerdi</div>
+        <div class="giorni">Sabato</div>
+        <div class="giorni">Domenica</div>
+  
+        <div *ngFor="let giorno of giorniMese" [ngClass]="{'cubo': true, 'grigio': giorno.nonCorrente}">
+          <div class="numero-giorno">{{ giorno.numero }}</div>
+          <div class="contenuto-giorno">{{ giorno.contenuto }}</div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="bottoni-container">
+      <h2>News</h2>
+      <div *ngFor="let bottone of bottoni" class="bottone">
+        <img [src]="'assets/' + bottone.img" alt="Image" class="bottone-img">
+        <a [href]="bottone.linkEsterno" target="_blank" rel="noopener noreferrer">{{ bottone.label }}</a>
+      </div>
+    </div>
+  </div>
+  
