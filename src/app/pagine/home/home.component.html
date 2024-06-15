@@ -1,1 +1,9 @@
-<p>home works!</p>
+<div class="container">
+    <h2>Prossimi Eventi</h2>
+    <ul>
+      <li *ngFor="let evento of prossimiEventi">
+        <strong>{{ evento.data | date: 'longDate' }}:</strong> {{ evento.evento }}
+      </li>
+    </ul>
+  </div>
+  
