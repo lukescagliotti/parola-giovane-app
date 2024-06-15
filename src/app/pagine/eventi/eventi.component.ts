@@ -7,6 +7,7 @@ import { Giorno } from './giorno.model';
 interface GiornoEsteso extends Giorno {
   nonCorrente: boolean;
   evento?: string;
+  isToday?: boolean;
 }
 
 interface Evento {
@@ -57,7 +58,7 @@ export class EventiComponent implements OnInit {
       const dataOdierna = new Date();
       this.meseCorrente = dataOdierna.getMonth();
       this.annoCorrente = dataOdierna.getFullYear();
-      this.giornoDefault = this.listaMesi[this.meseCorrente];
+      this.giornoDefault = `${this.listaMesi[this.meseCorrente]} ${this.annoCorrente}`;
       this.GeneraGiorniDelMese(this.meseCorrente, this.annoCorrente);
     });
   }
@@ -72,7 +73,8 @@ export class EventiComponent implements OnInit {
   CambiaMese(event: Event) {
     const selectElement = event.target as HTMLSelectElement;
     this.giornoDefault = selectElement.value;
-    this.meseCorrente = this.listaMesi.indexOf(this.giornoDefault);
+    this.meseCorrente = this.listaMesi.indexOf(this.giornoDefault.split(' ')[0]);
+    this.annoCorrente = parseInt(selectElement.value.split(' ')[1], 10);
     this.GeneraGiorniDelMese(this.meseCorrente, this.annoCorrente);
   }
 
@@ -83,7 +85,7 @@ export class EventiComponent implements OnInit {
     } else {
       this.meseCorrente--;
     }
-    this.giornoDefault = this.listaMesi[this.meseCorrente];
+    this.giornoDefault = `${this.listaMesi[this.meseCorrente]} ${this.annoCorrente}`;
     this.GeneraGiorniDelMese(this.meseCorrente, this.annoCorrente);
   }
 
@@ -94,11 +96,12 @@ export class EventiComponent implements OnInit {
     } else {
       this.meseCorrente++;
     }
-    this.giornoDefault = this.listaMesi[this.meseCorrente];
+    this.giornoDefault = `${this.listaMesi[this.meseCorrente]} ${this.annoCorrente}`;
     this.GeneraGiorniDelMese(this.meseCorrente, this.annoCorrente);
   }
 
   GeneraGiorniDelMese(mese: number, anno: number) {
+    const oggi = new Date();
     const primoGiornoMese = new Date(anno, mese, 1);
     const ultimoGiornoMese = new Date(anno, mese + 1, 0);
     const giorniNelMese = ultimoGiornoMese.getDate();
@@ -126,7 +129,8 @@ export class EventiComponent implements OnInit {
       this.giorniMese.push({
         numero: i,
         contenuto: evento ? evento.evento : '',
-        nonCorrente: false
+        nonCorrente: false,
+        isToday: oggi.getDate() === i && oggi.getMonth() === mese && oggi.getFullYear() === anno
       });
     }
 

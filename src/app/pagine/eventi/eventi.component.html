@@ -5,7 +5,7 @@
           <button (click)="MesePrecedente()">&lt;</button>
         </div>
         <div class="mese">
-          <span>{{ giornoDefault }}</span>
+          <span>{{ listaMesi[meseCorrente] }} {{ annoCorrente }}</span>
         </div>
         <div class="freccia destra">
           <button (click)="MeseSuccessivo()">&gt;</button>
@@ -22,7 +22,10 @@
         <div class="giorni">Domenica</div>
   
         <div *ngFor="let giorno of giorniMese" [ngClass]="{'cubo': true, 'grigio': giorno.nonCorrente}">
-          <div class="numero-giorno">{{ giorno.numero }}</div>
+          <div class="numero-giorno">
+            {{ giorno.numero }}
+            <span *ngIf="giorno.isToday" class="blue-dot"></span>
+          </div>
           <div class="contenuto-giorno">{{ giorno.contenuto }}</div>
         </div>
       </div>
