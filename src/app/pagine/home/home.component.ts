@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import localeIt from '@angular/common/locales/it';
+import { LOCALE_ID } from '@angular/core';
+
+// Register Italian locale data
+registerLocaleData(localeIt);
 
 interface Evento {
   data: string;
@@ -12,7 +17,8 @@ interface Evento {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   standalone: true,
-  imports: [CommonModule, HttpClientModule]
+  imports: [CommonModule, HttpClientModule],
+  providers: [{ provide: LOCALE_ID, useValue: 'it' }]
 })
 export class HomeComponent implements OnInit {
   eventi: Evento[] = [];
