@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.scss'
+  styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
   @ViewChild('indicator') indicator!: ElementRef;
@@ -33,7 +33,7 @@ export class MenuComponent {
   setIndicatorPosition(element: HTMLElement) {
     const indicator = this.indicator.nativeElement;
     const rect = element.getBoundingClientRect();
-    const parentRect = this.el.nativeElement.getBoundingClientRect();
+    const parentRect = this.el.nativeElement.querySelector('.menu-items').getBoundingClientRect();
 
     indicator.style.width = `${rect.width}px`;
     indicator.style.left = `${rect.left - parentRect.left}px`;

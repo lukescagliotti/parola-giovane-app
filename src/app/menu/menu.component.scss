@@ -1,65 +1,70 @@
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
-  }
-  
-  .menu {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: orange; /* Colore di sfondo arancione , trovare l'hex giusto*/
-    position: relative;
-  }
-  
-  .logo {
-    height: 40px;
-    margin-right: auto;
-  }
-  
-  .menu-items {
-    list-style-type: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    position: relative;
-  }
-  
-  .menu-items li {
-    margin-left: 20px;
-    position: relative;
-  }
-  
-  .menu-items a {
-    text-decoration: none;
-    color: purple; /* Scritte viola, trovare l'hex giusto */
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.3s;
-  }
-  
-  .menu-items a:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05); 
-  }
-  
-  .menu-items a.active {
-    background-color: rgba(255, 255, 255, 0.3); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.08); 
-  }
-  
-  .selection-indicator {
-    position: absolute;
-    bottom: 0;
-    height: 100%;
-    border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    z-index: 0;
-  }
-  
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #FFA500; /* Colore di sfondo arancione */
+  position: relative;
+}
+
+.logo {
+  height: 40px;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.menu-items {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  margin-left: auto; /* Allinea i bottoni sulla destra */
+}
+
+.menu-items li {
+  margin-left: 20px;
+  position: relative;
+}
+
+.menu-items a {
+  text-decoration: none;
+  color: #4B0082; /* Scritte viola */
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.menu-items a:hover {
+  color: #4B0082;
+  transform: scale(1.05);
+}
+
+.menu-items a.active {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.08);
+  color: #4B0082;
+}
+
+.menu-items a.active:hover {
+  background-color: transparent; /* Rende l'effetto hover trasparente */
+  transform: none; /* Rimuove l'animazione di scala */
+}
+
+.selection-indicator {
+  position: absolute;
+  bottom: 10px; /* Alza l'indicatore per allinearlo meglio */
+  height: calc(100% - 20px); /* Altezza corretta per allineamento verticale */
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  z-index: 0;
+}
