@@ -41,11 +41,11 @@ export class EventiComponent implements OnInit {
   eventi: Evento[] = [];
 
   bottoni: Bottone[] = [
+    { img: 'logo.png', label: 'Bottone 1', linkEsterno: 'https://www.example1.com' },
     { img: 'logo.png', label: 'Bottone 2', linkEsterno: 'https://www.example2.com' },
     { img: 'logo.png', label: 'Bottone 3', linkEsterno: 'https://www.example3.com' },
     { img: 'logo.png', label: 'Bottone 4', linkEsterno: 'https://www.example4.com' },
     { img: 'logo.png', label: 'Bottone 5', linkEsterno: 'https://www.example5.com' },
-    { img: 'logo.png', label: 'Bottone 1', linkEsterno: 'https://www.example1.com' },
     { img: 'logo.png', label: 'Bottone 6', linkEsterno: 'https://www.example6.com' }
   ];
 
