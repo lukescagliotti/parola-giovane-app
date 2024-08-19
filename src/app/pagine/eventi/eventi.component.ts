@@ -49,7 +49,7 @@ export class EventiComponent implements OnInit {
     { img: 'logo.png', label: 'Bottone 6', linkEsterno: 'https://www.example6.com' }
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get<Evento[]>('assets/eventi.json').subscribe(data => {
@@ -125,8 +125,8 @@ export class EventiComponent implements OnInit {
         .filter(e => {
           const eventoData = new Date(e.data);
           return eventoData.getFullYear() === dataCorrente.getFullYear() &&
-                 eventoData.getMonth() === dataCorrente.getMonth() &&
-                 eventoData.getDate() === dataCorrente.getDate();
+            eventoData.getMonth() === dataCorrente.getMonth() &&
+            eventoData.getDate() === dataCorrente.getDate();
         })
         .map(e => e.evento);
 
@@ -152,24 +152,46 @@ export class EventiComponent implements OnInit {
 
   AggiungiEventoAlCalendario(evento: string, giorno: GiornoEsteso) {
     const titoloEvento = evento;
-    const dataEvento = new Date(this.annoCorrente, this.meseCorrente, giorno.numero);
+    const dataEventoInizio = new Date(this.annoCorrente, this.meseCorrente, giorno.numero, 10, 0, 0); // Inizio alle 10:00
+    const dataEventoFine = new Date(dataEventoInizio.getTime() + 60 * 60 * 1000); // Evento di un'ora
 
-    const dettagliEvento = {
-      title: titoloEvento,
-      text: `Evento: ${titoloEvento} in data ${dataEvento.toLocaleDateString()}`
-    };
+    const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:${this.generateUID()}
+DTSTAMP:${this.FormatDateToICS(new Date())}
+DTSTART:${this.FormatDateToICS(dataEventoInizio)}
+DTEND:${this.FormatDateToICS(dataEventoFine)}
+SUMMARY:${titoloEvento}
+DESCRIPTION:${titoloEvento}
+LOCATION:Luogo dell'evento
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR
+    `.trim();
 
-    if (navigator.share) {
-      navigator.share(dettagliEvento)
-        .then(() => console.log('Evento condiviso con successo'))
-        .catch((error) => console.error('Errore durante la condivisione', error));
-    } else {
-      alert('La condivisione non è supportata in questo browser');
-    }
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = window.URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${titoloEvento}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
 
   FormatDateToICS(date: Date): string {
     return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  }
+
+  generateUID(): string {
+    return `${new Date().getTime()}@yourorganization.com`;
   }
 
 }
