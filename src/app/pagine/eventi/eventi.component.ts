@@ -6,7 +6,7 @@ import { Giorno } from './giorno.model';
 
 interface GiornoEsteso extends Giorno {
   nonCorrente: boolean;
-  evento?: string;
+  evento?: string[];
   isToday?: boolean;
 }
 
@@ -106,31 +106,36 @@ export class EventiComponent implements OnInit {
     const ultimoGiornoMese = new Date(anno, mese + 1, 0);
     const giorniNelMese = ultimoGiornoMese.getDate();
     const primoGiornoSettimana = primoGiornoMese.getDay() === 0 ? 7 : primoGiornoMese.getDay();
-    
+
     this.giorniMese = [];
 
     const giorniNelMesePrecedente = new Date(anno, mese, 0).getDate();
     for (let i = primoGiornoSettimana - 2; i >= 0; i--) {
       this.giorniMese.push({
         numero: giorniNelMesePrecedente - i,
-        contenuto: '',
-        nonCorrente: true
+        evento: [],
+        nonCorrente: true,
+        contenuto: ''
       });
     }
 
     for (let i = 1; i <= giorniNelMese; i++) {
       const dataCorrente = new Date(anno, mese, i);
-      const evento = this.eventi.find(e => {
-        const eventoData = new Date(e.data);
-        return eventoData.getFullYear() === dataCorrente.getFullYear() &&
-               eventoData.getMonth() === dataCorrente.getMonth() &&
-               eventoData.getDate() === dataCorrente.getDate();
-      });
+      const eventiGiorno = this.eventi
+        .filter(e => {
+          const eventoData = new Date(e.data);
+          return eventoData.getFullYear() === dataCorrente.getFullYear() &&
+                 eventoData.getMonth() === dataCorrente.getMonth() &&
+                 eventoData.getDate() === dataCorrente.getDate();
+        })
+        .map(e => e.evento);
+
       this.giorniMese.push({
         numero: i,
-        contenuto: evento ? evento.evento : '',
+        evento: eventiGiorno,
         nonCorrente: false,
-        isToday: oggi.getDate() === i && oggi.getMonth() === mese && oggi.getFullYear() === anno
+        isToday: oggi.getDate() === i && oggi.getMonth() === mese && oggi.getFullYear() === anno,
+        contenuto: ''
       });
     }
 
@@ -138,9 +143,33 @@ export class EventiComponent implements OnInit {
     for (let i = 1; i <= giorniAggiuntivi; i++) {
       this.giorniMese.push({
         numero: i,
-        contenuto: '',
-        nonCorrente: true
+        evento: [],
+        nonCorrente: true,
+        contenuto: ''
       });
     }
   }
+
+  AggiungiEventoAlCalendario(evento: string, giorno: GiornoEsteso) {
+    const titoloEvento = evento;
+    const dataEvento = new Date(this.annoCorrente, this.meseCorrente, giorno.numero);
+
+    const dettagliEvento = {
+      title: titoloEvento,
+      text: `Evento: ${titoloEvento} in data ${dataEvento.toLocaleDateString()}`
+    };
+
+    if (navigator.share) {
+      navigator.share(dettagliEvento)
+        .then(() => console.log('Evento condiviso con successo'))
+        .catch((error) => console.error('Errore durante la condivisione', error));
+    } else {
+      alert('La condivisione non è supportata in questo browser');
+    }
+  }
+
+  FormatDateToICS(date: Date): string {
+    return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  }
+
 }

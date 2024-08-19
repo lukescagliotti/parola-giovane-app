@@ -1,19 +1,19 @@
 .my-10 {
     margin: 10px 0;
   }
-  
+
   .flex {
     display: flex;
   }
-  
+
   .justify-center {
     justify-content: flex-start;
   }
-  
+
   .mese-container {
     width: 70%;
   }
-  
+
   .mese-selettore {
     display: flex;
     align-items: center;
@@ -21,36 +21,36 @@
     font-size: 1.5em;
     margin-bottom: 10px;
   }
-  
+
   .mese-selettore .freccia {
     flex: 0 0 auto;
   }
-  
+
   .mese-selettore .mese {
     flex: 1 1 auto;
     text-align: center;
   }
-  
+
   .mese-selettore button {
     background: none;
     border: none;
     font-size: 1.5em;
     cursor: pointer;
   }
-  
+
   .container {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
     width: 100%;
   }
-  
+
   .giorni, .cubo {
     text-align: center;
     padding: 10px;
     box-sizing: border-box;
   }
-  
+
   .cubo {
     text-align: left;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -59,21 +59,53 @@
     position: relative;
     height: 150px;
   }
-  
+
   .cubo.grigio {
     background-color: #e0e0e0;
   }
-  
+
   .cubo .numero-giorno {
     font-weight: bold;
     font-size: 1.5em;
     margin-bottom: 10px;
   }
-  
+
   .cubo .contenuto-giorno {
     font-size: 0.9em;
   }
-  
+
+  .cubo .contenuto-eventi {
+    margin-top: 10px;
+  }
+
+  .evento-card {
+    background-color: #ffebcd; /* Colore arancione chiaro */
+    color: #4B0082; /* Testo viola */
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  .evento-card::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: #FFA500; /* Linea arancione */
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .evento-card:hover {
+    cursor: pointer;
+    background-color: #FFD700; /* Colore arancione leggermente più scuro al passaggio del mouse */
+  }
+
+
   .bottoni-container {
     width: 30%;
     display: flex;
@@ -82,12 +114,12 @@
     padding: 10px;
     box-sizing: border-box;
   }
-  
+
   .bottoni-container h2 {
     text-align: center;
     margin-bottom: 20px;
   }
-  
+
   .bottone {
     margin-bottom: 10px;
     background-color: #FFA500; /* Sfondo arancione, trovare hex giusto */
@@ -105,7 +137,7 @@
     height: 60px;
     position: relative;
   }
-  
+
   .bottone a {
     text-decoration: none;
     color: #4B0082;
@@ -114,11 +146,11 @@
     flex-grow: 1;
     text-align: center;
   }
-  
+
   .bottone a:hover {
     text-decoration: underline;
   }
-  
+
   .bottone-img {
     width: 40px;
     height: 40px;
@@ -126,7 +158,7 @@
     left: 10px;
     object-fit: contain;
   }
-  
+
   .blue-dot {
     display: inline-block;
     width: 10px;
@@ -136,7 +168,7 @@
     margin-left: 5px;
     animation: pulse 1s infinite;
   }
-  
+
   @keyframes pulse {
     0% {
       transform: scale(1);
@@ -148,5 +180,4 @@
       transform: scale(1);
     }
   }
-  
-  
+

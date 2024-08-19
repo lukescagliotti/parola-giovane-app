@@ -11,7 +11,7 @@
           <button (click)="MeseSuccessivo()">&gt;</button>
         </div>
       </div>
-  
+
       <div class="container">
         <div class="giorni">Lunedi</div>
         <div class="giorni">Martedi</div>
@@ -20,17 +20,22 @@
         <div class="giorni">Venerdi</div>
         <div class="giorni">Sabato</div>
         <div class="giorni">Domenica</div>
-  
+
         <div *ngFor="let giorno of giorniMese" [ngClass]="{'cubo': true, 'grigio': giorno.nonCorrente}">
           <div class="numero-giorno">
             {{ giorno.numero }}
             <span *ngIf="giorno.isToday" class="blue-dot"></span>
           </div>
-          <div class="contenuto-giorno">{{ giorno.contenuto }}</div>
+          <div *ngIf="giorno.evento && giorno.evento.length > 0" class="contenuto-eventi">
+            <div *ngFor="let evento of giorno.evento" class="evento-card" (click)="AggiungiEventoAlCalendario(evento, giorno)">
+              {{ evento }}
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
-  
+
     <div class="bottoni-container">
       <h2>News</h2>
       <div *ngFor="let bottone of bottoni" class="bottone">
@@ -39,4 +44,5 @@
       </div>
     </div>
   </div>
-  
+
+
