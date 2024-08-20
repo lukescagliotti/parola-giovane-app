@@ -3,14 +3,9 @@ import { CommonModule, registerLocaleData } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import localeIt from '@angular/common/locales/it';
 import { LOCALE_ID } from '@angular/core';
+import { Evento } from '../../models/evento.model';
 
-// Register Italian locale data
 registerLocaleData(localeIt);
-
-interface Evento {
-  data: string;
-  evento: string;
-}
 
 @Component({
   selector: 'app-home',
@@ -23,6 +18,7 @@ interface Evento {
 export class HomeComponent implements OnInit {
   eventi: Evento[] = [];
   prossimiEventi: Evento[] = [];
+  currentIndex: number = 0;
 
   constructor(private http: HttpClient) {}
 
@@ -30,7 +26,26 @@ export class HomeComponent implements OnInit {
     this.http.get<Evento[]>('assets/eventi.json').subscribe(data => {
       this.eventi = data;
       this.prossimiEventi = this.getProssimiEventi(this.eventi);
+      this.startSlider();
     });
+  }
+
+  startSlider() {
+    setInterval(() => {
+      this.nextSlide();
+    }, 3000); // Cambia slide ogni 3 secondi
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.prossimiEventi.length;
+  }
+
+  prevSlide() {
+    this.currentIndex = (this.currentIndex - 1 + this.prossimiEventi.length) % this.prossimiEventi.length;
+  }
+
+  goToSlide(index: number) {
+    this.currentIndex = index;
   }
 
   getProssimiEventi(eventi: Evento[]): Evento[] {

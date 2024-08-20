@@ -8,4 +8,5 @@ export interface Evento {
   luogo: string;
   top?: number;
   height?: number;
+  imagePath?: string;
 }

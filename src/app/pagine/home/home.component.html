@@ -1,9 +1,31 @@
-<div class="container">
-    <h2>Prossimi Eventi</h2>
-    <ul>
-      <li *ngFor="let evento of prossimiEventi">
-        <strong>{{ evento.data | date: 'longDate' }}:</strong> {{ evento.evento }}
-      </li>
-    </ul>
+<div class="slider-container">
+  <div class="slider" [style.transform]="'translateX(-' + currentIndex * 100 + '%)'">
+    <div
+      class="slide"
+      *ngFor="let evento of prossimiEventi; let i = index"
+      [ngClass]="{ 'active': i === currentIndex }"
+      [style.backgroundImage]="'url(' + evento.imagePath + ')'"
+    >
+      <div class="overlay">
+        <div class="event-details">
+          <h2>{{ evento.titolo }}</h2>
+          <p>{{ evento.data | date: 'fullDate' }}</p>
+          <p>{{ evento.orarioInizio }} - {{ evento.orarioFine }}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  
+
+  <div class="dots">
+    <span
+      *ngFor="let dot of prossimiEventi; let i = index"
+      [ngClass]="{ 'active-dot': i === currentIndex }"
+      (click)="goToSlide(i)"
+    ></span>
+  </div>
+
+  <div class="controls">
+    <button (click)="prevSlide()">&#10094;</button>
+    <button (click)="nextSlide()">&#10095;</button>
+  </div>
+</div>
