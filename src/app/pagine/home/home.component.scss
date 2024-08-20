@@ -1,7 +1,7 @@
 .slider-container {
   position: relative;
   width: 100%; /* Estende lo slider a tutta la larghezza della pagina */
-  height: 100vh; /* Altezza dello slider uguale all'altezza della finestra */
+  height: 60vh; /* Altezza dello slider limitata al 60% dell'altezza della finestra */
   margin: 0;
   overflow: hidden;
 }
@@ -14,12 +14,13 @@
 
 .slide {
   min-width: 100%; /* Ogni slide occupa tutta la larghezza */
-  height: 100vh; /* Altezza di ogni slide uguale all'altezza della finestra */
+  height: 60vh; /* Ogni slide occupa il 60% dell'altezza della finestra */
   background-size: cover;
   background-position: center;
   position: relative;
   opacity: 0.8;
   transition: opacity 0.5s ease-in-out;
+  z-index: 1;
 }
 
 .slide.active {
@@ -31,15 +32,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7); /* Aumenta la trasparenza per una migliore leggibilità */
   color: white;
   padding: 20px;
   box-sizing: border-box;
+  z-index: 2; /* Assicura che l'overlay sia sopra l'immagine di sfondo */
 }
 
 .event-details h2 {
   margin: 0;
   font-size: 24px;
+}
+
+.event-details p {
+  margin: 5px 0 0;
 }
 
 .dots {
@@ -48,6 +54,7 @@
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  z-index: 3; /* Mantieni i puntini sopra tutto il resto */
 }
 
 .dots span {
@@ -72,6 +79,7 @@
   display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
+  z-index: 3;
 }
 
 .controls button {
