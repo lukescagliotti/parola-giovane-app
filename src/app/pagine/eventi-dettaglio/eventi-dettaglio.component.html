@@ -17,9 +17,7 @@
                height: calcolaDurataEvento(evento.orarioInizio, evento.orarioFine) + 'px'
              }">
           <strong>{{ evento.titolo }}</strong>
-          <p *ngIf="evento.orarioInizio && evento.orarioFine">
-            <em>{{ evento.orarioInizio }} - {{ evento.orarioFine }}</em>
-          </p>
+          <span *ngIf="evento.orarioInizio && evento.orarioFine" class="orario-parziale">({{ evento.orarioInizio }} - {{ evento.orarioFine }})</span>
           <p>{{ evento.descrizione }}</p>
           <p><em>{{ evento.luogo }}</em></p>
         </div>

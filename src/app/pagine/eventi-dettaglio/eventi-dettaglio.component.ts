@@ -49,7 +49,9 @@ export class EventiDettaglioComponent implements AfterViewInit {
       return 0;
     }
     const [ore, minuti] = orario.split(':').map(Number);
-    return (ore * 60 + minuti) * (30 / 60);
+    const pixelsPerHour = 30;
+    const offsetMinutes = 90;
+    return ((ore * 60 + minuti + offsetMinutes) * pixelsPerHour) / 60;
   }
 
   calcolaDurataEvento(orarioInizio?: string, orarioFine?: string): number {
