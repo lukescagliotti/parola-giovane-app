@@ -7,7 +7,6 @@
   overflow: hidden;
   background-color: #f9f9f9;
   border-radius: 8px;
-  box-sizing: border-box; /* Aggiunto */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -16,9 +15,8 @@
   flex-direction: column;
   flex-grow: 1;
   overflow: hidden;
-  height: 66.6%; /* 2/3 della pagina */
+  height: 66.6%;
   margin-bottom: 20px;
-  box-sizing: border-box; /* Aggiunto */
 }
 
 .calendar-container {
@@ -29,8 +27,6 @@
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Aggiunto */
-  box-sizing: border-box; /* Aggiunto */
 }
 
 .ore-colonna {
@@ -38,7 +34,6 @@
   text-align: right;
   margin-right: 10px;
   padding-top: 30px;
-  box-sizing: border-box; /* Aggiunto */
 }
 
 .ora {
@@ -46,7 +41,6 @@
   line-height: 30px;
   font-size: 0.9em;
   color: #666;
-  box-sizing: border-box; /* Aggiunto */
 }
 
 .eventi-colonna {
@@ -54,7 +48,6 @@
   position: relative;
   background-color: #fff;
   border-left: 1px solid #ddd;
-  box-sizing: border-box; /* Aggiunto */
 }
 
 .linea-ora {
@@ -63,13 +56,12 @@
   right: 0;
   height: 1px;
   background-color: #ddd;
-  box-sizing: border-box; /* Aggiunto */
 }
 
 .evento-card {
   position: absolute;
   left: 0;
-  right: 0; /* Modificato da '10px' a '0' per evitare overflow */
+  right: 10px;
   background-color: #ffcc80;
   border-left: 4px solid #ab47bc;
   color: #4e342e;
@@ -102,20 +94,50 @@
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  box-sizing: border-box; /* Aggiunto */
+  align-items: center;
 }
 
-.card-bottoni button {
+.aggiungi-calendario {
+  text-align: center;
+  margin-bottom: 20px;
+  p {
+    font-size: 17px;
+    line-height: 150%;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .icona-container {
+    display: flex;
+    justify-content: center;
+    img {
+      width: 45px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+.bottoni-azione {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.bottoni-azione button {
+  width: 120px; /* Dimensione ridotta dei bottoni */
+  margin: 0 10px; /* Margine tra i bottoni */
   background-color: #ab47bc;
   color: #fff;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 0.9em; /* Font size ridotta */
 }
 
-.card-bottoni button:hover {
+.bottoni-azione button:hover {
   background-color: #8e24aa;
 }

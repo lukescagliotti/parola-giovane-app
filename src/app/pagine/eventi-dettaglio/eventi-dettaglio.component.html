@@ -29,7 +29,21 @@
 
   <!-- Card con bottoni -->
   <div class="card-bottoni">
-    <button mat-button (click)="chiudi()">Chiudi</button>
-    <button mat-button>Salva evento</button>
+    <!-- Aggiungi a calendario -->
+    <div class="aggiungi-calendario">
+      <p>Aggiungi evento al calendario</p>
+      <div class="icona-container">
+        <img src="assets/apple.png" alt="Apple" (click)="aggiungiAlCalendario('apple')" />
+        <img src="assets/google.png" alt="Google" (click)="aggiungiAlCalendario('google')" />
+        <img src="assets/outlook.png" alt="Outlook" (click)="aggiungiAlCalendario('outlook')" />
+        <img src="assets/yahoo.png" alt="Yahoo" (click)="aggiungiAlCalendario('yahoo')" />
+      </div>
+    </div>
+
+    <!-- Bottoni azione -->
+    <div class="bottoni-azione">
+      <button mat-button (click)="chiudi()">Chiudi</button>
+      <button mat-button (click)="apriLink()">Apri link evento</button>
+    </div>
   </div>
 </div>

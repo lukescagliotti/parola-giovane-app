@@ -31,7 +31,6 @@ export class EventiDettaglioComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // Scorri la vista alle 8:00
     const scrollTop = this.calcolaPosizioneOrario('08:00');
     this.calendarContainer.nativeElement.scrollTop = scrollTop;
   }
@@ -40,12 +39,17 @@ export class EventiDettaglioComponent implements AfterViewInit {
     this.dialogRef.close();
   }
 
+  apriLink(): void {
+    const evento = this.data.eventi[0];
+    window.open(evento.luogo, '_blank');
+  }
+
   calcolaPosizioneOrario(orario?: string): number {
     if (!orario) {
       return 0;
     }
     const [ore, minuti] = orario.split(':').map(Number);
-    return (ore * 60 + minuti) * (30 / 60); // Altezza ora di 30px
+    return (ore * 60 + minuti) * (30 / 60);
   }
 
   calcolaDurataEvento(orarioInizio?: string, orarioFine?: string): number {
@@ -55,5 +59,49 @@ export class EventiDettaglioComponent implements AfterViewInit {
     const inizio = this.calcolaPosizioneOrario(orarioInizio);
     const fine = this.calcolaPosizioneOrario(orarioFine);
     return fine - inizio;
+  }
+
+  aggiungiAlCalendario(tipo: string): void {
+    const evento = this.data.eventi[0];
+    const dataEventoInizio = new Date(`${this.data.anno}-${this.data.mese}-${this.data.giorno}T${evento.orarioInizio}`);
+    const dataEventoFine = new Date(`${this.data.anno}-${this.data.mese}-${this.data.giorno}T${evento.orarioFine}`);
+
+    const icsContent = `
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Your Organization//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:${this.generateUID()}
+DTSTAMP:${this.FormatDateToICS(new Date())}
+DTSTART:${this.FormatDateToICS(dataEventoInizio)}
+DTEND:${this.FormatDateToICS(dataEventoFine)}
+SUMMARY:${evento.titolo}
+DESCRIPTION:${evento.descrizione}
+LOCATION:${evento.luogo}
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR
+    `.trim();
+
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = window.URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${evento.titolo}.ics`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  FormatDateToICS(date: Date): string {
+    return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+  }
+
+  generateUID(): string {
+    return `${new Date().getTime()}@yourorganization.com`;
   }
 }
