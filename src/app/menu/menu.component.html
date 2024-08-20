@@ -4,9 +4,9 @@
   </a>
   <ul class="menu-items">
     <div class="selection-indicator" #indicator></div>
+    <li><a routerLink="/eventi" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Eventi</a></li>
     <li><a routerLink="/chi-siamo" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Chi Siamo</a></li>
     <li><a routerLink="/contatti" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Contatti</a></li>
-    <li><a routerLink="/eventi" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Eventi</a></li>
     <li><a routerLink="/progetti" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Progetti</a></li>
   </ul>
 </nav>

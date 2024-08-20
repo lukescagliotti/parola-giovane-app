@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -10,9 +10,23 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent {
+
+  meseCorrente: number = 0;
+  annoCorrente: number = new Date().getFullYear();
+
+
   @ViewChild('indicator') indicator!: ElementRef;
 
-  constructor(private el: ElementRef) {}
+  constructor(private el: ElementRef, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      const mese = params['mese'];
+      if (mese) {
+        this.meseCorrente = parseInt(mese, 10) - 1; // -1 perché i mesi in JavaScript sono 0-indexed
+      }
+    });
+  }
 
   ngAfterViewInit() {
     this.updateIndicatorPosition();

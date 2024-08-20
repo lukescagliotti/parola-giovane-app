@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule, registerLocaleData } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import localeIt from '@angular/common/locales/it';
 import { LOCALE_ID } from '@angular/core';
 import { Evento } from '../../models/evento.model';
-
-registerLocaleData(localeIt);
 
 @Component({
   selector: 'app-home',
@@ -18,9 +17,9 @@ registerLocaleData(localeIt);
 export class HomeComponent implements OnInit {
   eventi: Evento[] = [];
   prossimiEventi: Evento[] = [];
-  currentIndex: number = 0;
+  currentIndex = 0;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit() {
     this.http.get<Evento[]>('assets/eventi.json').subscribe(data => {
@@ -33,7 +32,7 @@ export class HomeComponent implements OnInit {
   startSlider() {
     setInterval(() => {
       this.nextSlide();
-    }, 3000); // Cambia slide ogni 3 secondi
+    }, 5000);
   }
 
   nextSlide() {
@@ -41,11 +40,20 @@ export class HomeComponent implements OnInit {
   }
 
   prevSlide() {
-    this.currentIndex = (this.currentIndex - 1 + this.prossimiEventi.length) % this.prossimiEventi.length;
+    this.currentIndex =
+      (this.currentIndex - 1 + this.prossimiEventi.length) % this.prossimiEventi.length;
   }
 
   goToSlide(index: number) {
     this.currentIndex = index;
+  }
+
+  navigateToEvent(evento: Evento) {
+    const mese = new Date(evento.data).getMonth() + 1;
+    const anno = new Date(evento.data).getFullYear();
+
+    // Naviga alla pagina degli eventi con il mese e l'anno come parametri
+    this.router.navigate(['/eventi'], { queryParams: { mese, anno } });
   }
 
   getProssimiEventi(eventi: Evento[]): Evento[] {
