@@ -1,0 +1,121 @@
+.modal-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-sizing: border-box; /* Aggiunto */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+  height: 66.6%; /* 2/3 della pagina */
+  margin-bottom: 20px;
+  box-sizing: border-box; /* Aggiunto */
+}
+
+.calendar-container {
+  display: flex;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Aggiunto */
+  box-sizing: border-box; /* Aggiunto */
+}
+
+.ore-colonna {
+  width: 50px;
+  text-align: right;
+  margin-right: 10px;
+  padding-top: 30px;
+  box-sizing: border-box; /* Aggiunto */
+}
+
+.ora {
+  height: 30px;
+  line-height: 30px;
+  font-size: 0.9em;
+  color: #666;
+  box-sizing: border-box; /* Aggiunto */
+}
+
+.eventi-colonna {
+  flex-grow: 1;
+  position: relative;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  box-sizing: border-box; /* Aggiunto */
+}
+
+.linea-ora {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #ddd;
+  box-sizing: border-box; /* Aggiunto */
+}
+
+.evento-card {
+  position: absolute;
+  left: 0;
+  right: 0; /* Modificato da '10px' a '0' per evitare overflow */
+  background-color: #ffcc80;
+  border-left: 4px solid #ab47bc;
+  color: #4e342e;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 0.85em;
+  z-index: 10;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  top: 0;
+}
+
+.evento-card strong {
+  color: #4e342e;
+  font-size: 1em;
+}
+
+.evento-card em {
+  color: #7e57c2;
+  font-style: normal;
+}
+
+.evento-card p {
+  margin: 5px 0 0;
+}
+
+.card-bottoni {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box; /* Aggiunto */
+}
+
+.card-bottoni button {
+  background-color: #ab47bc;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.card-bottoni button:hover {
+  background-color: #8e24aa;
+}

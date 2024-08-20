@@ -22,16 +22,16 @@
           <div class="giorni">Domenica</div>
 
           <div *ngFor="let giorno of giorniMese" [ngClass]="{'cubo': true, 'grigio': giorno.nonCorrente}">
-              <div class="numero-giorno">
-                  {{ giorno.numero }}
-                  <span *ngIf="giorno.isToday" class="blue-dot"></span>
-              </div>
-              <div *ngIf="giorno.evento && giorno.evento.length > 0" class="contenuto-eventi">
-                  <div *ngFor="let evento of giorno.evento" class="evento-card" (click)="AggiungiEventoAlCalendario(evento, giorno)">
-                      {{ evento }}
-                  </div>
-              </div>
-          </div>
+            <div class="numero-giorno">
+                {{ giorno.numero }}
+                <span *ngIf="giorno.isToday" class="blue-dot"></span>
+            </div>
+            <div *ngIf="giorno.evento && giorno.evento.length > 0" class="contenuto-eventi">
+                <div *ngFor="let evento of giorno.evento" class="evento-card" (click)="apriModal(giorno.numero, meseCorrente, annoCorrente, giorno.evento)">
+                  {{ evento.titolo }}
+                </div>
+            </div>
+        </div>
       </div>
   </div>
 

@@ -1,0 +1,35 @@
+<div class="modal-container">
+  <h2>Dettagli dell'evento</h2>
+  <p><strong>Data:</strong> {{ data.giorno }} {{ data.mese }} {{ data.anno }}</p>
+
+  <!-- Calendario -->
+  <div class="calendar-wrapper">
+    <div #calendarContainer class="calendar-container">
+      <div class="ore-colonna">
+        <div *ngFor="let ora of oreGiornaliere" class="ora">{{ ora }}</div>
+      </div>
+      <div class="eventi-colonna">
+        <div *ngFor="let ora of oreGiornaliere" class="linea-ora"></div>
+        <div *ngFor="let evento of data.eventi"
+             class="evento-card"
+             [ngStyle]="{
+               top: calcolaPosizioneOrario(evento.orarioInizio) + 'px',
+               height: calcolaDurataEvento(evento.orarioInizio, evento.orarioFine) + 'px'
+             }">
+          <strong>{{ evento.titolo }}</strong>
+          <p *ngIf="evento.orarioInizio && evento.orarioFine">
+            <em>{{ evento.orarioInizio }} - {{ evento.orarioFine }}</em>
+          </p>
+          <p>{{ evento.descrizione }}</p>
+          <p><em>{{ evento.luogo }}</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card con bottoni -->
+  <div class="card-bottoni">
+    <button mat-button (click)="chiudi()">Chiudi</button>
+    <button mat-button>Salva evento</button>
+  </div>
+</div>

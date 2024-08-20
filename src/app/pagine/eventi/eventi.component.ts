@@ -3,16 +3,14 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { Giorno } from './giorno.model';
+import { EventiDettaglioComponent } from '../eventi-dettaglio/eventi-dettaglio.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog'; // Importa MatDialog
+import { Evento } from '../../models/evento.model';
 
 interface GiornoEsteso extends Giorno {
   nonCorrente: boolean;
-  evento?: string[];
+  evento?: Evento[];
   isToday?: boolean;
-}
-
-interface Evento {
-  data: string;
-  evento: string;
 }
 
 interface Bottone {
@@ -29,7 +27,8 @@ interface Bottone {
   imports: [
     CommonModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ]
 })
 export class EventiComponent implements OnInit {
@@ -39,6 +38,11 @@ export class EventiComponent implements OnInit {
   meseCorrente: number = 0;
   annoCorrente: number = 0;
   eventi: Evento[] = [];
+  selectedGiorno: number = 0;
+  selectedMese: string = '';
+  selectedAnno: number = 0;
+  selectedEventi: Evento[] = [];
+  showModal: boolean = false;
 
   bottoni: Bottone[] = [
     { img: 'logo.png', label: 'Bottone 1', linkEsterno: 'https://www.example1.com' },
@@ -49,7 +53,7 @@ export class EventiComponent implements OnInit {
     { img: 'logo.png', label: 'Bottone 6', linkEsterno: 'https://www.example6.com' }
   ];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.http.get<Evento[]>('assets/eventi.json').subscribe(data => {
@@ -121,14 +125,14 @@ export class EventiComponent implements OnInit {
 
     for (let i = 1; i <= giorniNelMese; i++) {
       const dataCorrente = new Date(anno, mese, i);
-      const eventiGiorno = this.eventi
-        .filter(e => {
-          const eventoData = new Date(e.data);
-          return eventoData.getFullYear() === dataCorrente.getFullYear() &&
-            eventoData.getMonth() === dataCorrente.getMonth() &&
-            eventoData.getDate() === dataCorrente.getDate();
-        })
-        .map(e => e.evento);
+      const eventiGiorno = this.eventi.filter(e => {
+        const eventoData = new Date(e.data);
+        return (
+          eventoData.getFullYear() === dataCorrente.getFullYear() &&
+          eventoData.getMonth() === dataCorrente.getMonth() &&
+          eventoData.getDate() === dataCorrente.getDate()
+        );
+      });
 
       this.giorniMese.push({
         numero: i,
@@ -192,6 +196,23 @@ END:VCALENDAR
 
   generateUID(): string {
     return `${new Date().getTime()}@yourorganization.com`;
+  }
+
+  apriModal(giorno: number, mese: number, anno: number, eventi: Evento[]) {
+    const dialogRef = this.dialog.open(EventiDettaglioComponent, {
+      width: '50%',
+      height: '70%',
+      data: {
+        giorno,
+        mese: this.listaMesi[mese],
+        anno,
+        eventi
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Modal chiusa', result);
+    });
   }
 
 }
