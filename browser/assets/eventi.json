@@ -1,0 +1,202 @@
+[
+  {
+      "data": "2024-06-20",
+      "titolo": "Live su Twitch",
+      "descrizione": "Unisciti a noi per una live su Twitch per discutere degli ultimi sviluppi.",
+      "orarioInizio": "18:00",
+      "orarioFine": "20:00",
+      "luogo": "https://twitch.tv/yourchannel"
+  },
+  {
+      "data": "2024-06-12",
+      "titolo": "Inizio sviluppo del sito",
+      "descrizione": "La fase iniziale di sviluppo del nostro nuovo sito web.",
+      "giornataIntera": true,
+      "luogo": "Online"
+  },
+  {
+      "data": "2024-07-04",
+      "titolo": "Riunione del Team",
+      "descrizione": "Riunione mensile del team per discutere i progressi e le prossime tappe.",
+      "orarioInizio": "10:00",
+      "orarioFine": "12:00",
+      "luogo": "Ufficio principale"
+  },
+  {
+      "data": "2024-07-14",
+      "titolo": "Presentazione del Progetto",
+      "descrizione": "Presentazione ufficiale del progetto alla direzione.",
+      "orarioInizio": "15:00",
+      "orarioFine": "17:00",
+      "luogo": "Sala conferenze"
+  },
+  {
+      "data": "2024-08-01",
+      "titolo": "Lancio della versione beta",
+      "descrizione": "Lancio ufficiale della versione beta del nostro prodotto.",
+      "giornataIntera": true,
+      "luogo": "Online"
+  },
+  {
+      "data": "2024-08-15",
+      "titolo": "Festa di metà agosto",
+      "descrizione": "Una giornata di celebrazioni e relax per tutto il team.",
+      "giornataIntera": true,
+      "luogo": "Parco centrale"
+  },
+  {
+      "data": "2024-08-24",
+      "titolo": "Incontro sul Progresso del Progetto",
+      "descrizione": "Incontro per discutere i progressi del progetto.",
+      "orarioInizio": "10:00",
+      "orarioFine": "13:00",
+      "luogo": "Ufficio"
+  },
+  {
+      "data": "2024-08-24",
+      "titolo": "Pausa Pranzo",
+      "descrizione": "Tempo libero per pranzare e socializzare.",
+      "orarioInizio": "13:00",
+      "orarioFine": "14:00",
+      "luogo": "Mensa aziendale"
+  },
+  {
+      "data": "2024-08-24",
+      "titolo": "Sessione di Brainstorming",
+      "descrizione": "Sessione creativa per nuove idee e strategie.",
+      "orarioInizio": "14:00",
+      "orarioFine": "17:00",
+      "luogo": "Sala riunioni"
+  },
+  {
+      "data": "2024-08-25",
+      "titolo": "Giornata di Formazione",
+      "descrizione": "Formazione intensiva per il team di sviluppo.",
+      "orarioInizio": "15:00",
+      "orarioFine": "20:00",
+      "luogo": "Aula formazione"
+  },
+  {
+      "data": "2024-08-25",
+      "titolo": "Workshop sull'Innovazione",
+      "descrizione": "Workshop per esplorare nuove tecnologie e metodologie.",
+      "orarioInizio": "10:00",
+      "orarioFine": "13:00",
+      "luogo": "Sala workshop"
+  },
+  {
+      "data": "2024-09-10",
+      "titolo": "Analisi dei Feedback",
+      "descrizione": "Analisi dettagliata dei feedback ricevuti dagli utenti.",
+      "orarioInizio": "15:00",
+      "orarioFine": "17:00",
+      "luogo": "Sala conferenze"
+  },
+  {
+      "data": "2024-09-21",
+      "titolo": "Rilascio della Versione Stabile",
+      "descrizione": "Rilascio ufficiale della versione stabile del nostro prodotto.",
+      "giornataIntera": true,
+      "luogo": "Online"
+  },
+  {
+      "data": "2024-10-05",
+      "titolo": "Workshop di Aggiornamento",
+      "descrizione": "Workshop per aggiornare il team sulle nuove funzionalità.",
+      "orarioInizio": "09:00",
+      "orarioFine": "12:00",
+      "luogo": "Aula formazione"
+  },
+  {
+      "data": "2024-10-18",
+      "titolo": "Hackathon Interno",
+      "descrizione": "Hackathon per sviluppare nuove funzionalità in team.",
+      "orarioInizio": "10:00",
+      "orarioFine": "18:00",
+      "luogo": "Ufficio"
+  },
+  {
+      "data": "2024-11-11",
+      "titolo": "Webinar sulle Nuove Funzionalità",
+      "descrizione": "Webinar online per presentare le nuove funzionalità del prodotto.",
+      "orarioInizio": "16:00",
+      "orarioFine": "17:00",
+      "luogo": "https://webinarlink.com"
+  },
+  {
+      "data": "2024-11-25",
+      "titolo": "Conferenza di Settore",
+      "descrizione": "Conferenza con esperti del settore per discutere delle nuove tendenze.",
+      "orarioInizio": "09:00",
+      "orarioFine": "17:00",
+      "luogo": "Centro conferenze"
+  },
+  {
+      "data": "2024-12-01",
+      "titolo": "Preparativi per il Rilascio di Fine Anno",
+      "descrizione": "Incontro per pianificare il rilascio finale del 2024.",
+      "orarioInizio": "14:00",
+      "orarioFine": "16:00",
+      "luogo": "Ufficio"
+  },
+  {
+      "data": "2024-12-24",
+      "titolo": "Festa di Natale Aziendale",
+      "descrizione": "Celebrazione di Natale con tutto il team.",
+      "giornataIntera": true,
+      "luogo": "Sede aziendale"
+  },
+  {
+      "data": "2025-01-10",
+      "titolo": "Riunione di Pianificazione Annuale",
+      "descrizione": "Pianificazione strategica per il nuovo anno.",
+      "orarioInizio": "10:00",
+      "orarioFine": "12:00",
+      "luogo": "Sala riunioni"
+  },
+  {
+      "data": "2025-01-25",
+      "titolo": "Seminario di Formazione",
+      "descrizione": "Seminario formativo per tutto il team.",
+      "orarioInizio": "09:00",
+      "orarioFine": "13:00",
+      "luogo": "Aula formazione"
+  },
+  {
+      "data": "2025-02-14",
+      "titolo": "Evento di San Valentino",
+      "descrizione": "Evento speciale per celebrare San Valentino con il team.",
+      "orarioInizio": "18:00",
+      "orarioFine": "20:00",
+      "luogo": "Ristorante locale"
+  },
+  {
+      "data": "2025-02-28",
+      "titolo": "Scadenza per le Proposte di Miglioramento",
+      "descrizione": "Ultimo giorno per presentare proposte di miglioramento per il prodotto.",
+      "giornataIntera": true,
+      "luogo": "Online"
+  },
+  {
+      "data": "2025-03-15",
+      "titolo": "Workshop di Sviluppo Personale",
+      "descrizione": "Workshop per il miglioramento delle soft skills del team.",
+      "orarioInizio": "10:00",
+      "orarioFine": "13:00",
+      "luogo": "Sala conferenze"
+  },
+  {
+      "data": "2025-03-31",
+      "titolo": "Rilascio della Nuova Versione",
+      "descrizione": "Rilascio della versione aggiornata del nostro prodotto.",
+      "giornataIntera": true,
+      "luogo": "Online"
+  },
+  {
+      "data": "2025-04-22",
+      "titolo": "Giornata della Terra",
+      "descrizione": "Evento speciale per celebrare la Giornata della Terra.",
+      "giornataIntera": true,
+      "luogo": "Parco cittadino"
+  }
+]
