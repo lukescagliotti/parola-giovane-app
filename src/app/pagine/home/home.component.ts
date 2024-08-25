@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import localeIt from '@angular/common/locales/it';
 import { LOCALE_ID } from '@angular/core';
 import { Evento } from '../../models/evento.model';
+import { EventoSelezionatoService } from '../../Services/evento-selezionato.service';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit {
   prossimiEventi: Evento[] = [];
   currentIndex = 0;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private eventoSelezionatoService: EventoSelezionatoService) {}
 
   ngOnInit() {
     this.http.get<Evento[]>('assets/eventi.json').subscribe(data => {
@@ -49,18 +50,37 @@ export class HomeComponent implements OnInit {
   }
 
   navigateToEvent(evento: Evento) {
+    const giorno = new Date(evento.data).getDate();
     const mese = new Date(evento.data).getMonth() + 1;
     const anno = new Date(evento.data).getFullYear();
+
+    this.eventoSelezionatoService.setEventoSelezionato(giorno, mese, anno);
 
     // Naviga alla pagina degli eventi con il mese e l'anno come parametri
     this.router.navigate(['/eventi'], { queryParams: { mese, anno } });
   }
 
   getProssimiEventi(eventi: Evento[]): Evento[] {
-    const oggi = new Date();
+    const adesso = new Date();
     return eventi
-      .filter(evento => new Date(evento.data) >= oggi)
-      .sort((a, b) => new Date(a.data).getTime() - new Date(b.data).getTime())
+      .filter(evento => {
+        const dataEvento = new Date(evento.data);
+
+        if (evento.giornataIntera || !evento.orarioFine) {
+          return dataEvento >= adesso;
+        } else {
+          const [oreFine, minutiFine] = evento.orarioFine.split(':').map(Number);
+          const fineEvento = new Date(dataEvento);
+          fineEvento.setHours(oreFine, minutiFine);
+
+          return fineEvento >= adesso;
+        }
+      })
+      .sort((a, b) => {
+        const dataA = new Date(a.data).getTime();
+        const dataB = new Date(b.data).getTime();
+        return dataA - dataB;
+      })
       .slice(0, 3);
   }
 }

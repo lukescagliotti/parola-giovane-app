@@ -6,6 +6,7 @@ import { Giorno } from './giorno.model';
 import { EventiDettaglioComponent } from '../eventi-dettaglio/eventi-dettaglio.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog'; // Importa MatDialog
 import { Evento } from '../../models/evento.model';
+import { EventoSelezionatoService } from '../../Services/evento-selezionato.service';
 
 interface GiornoEsteso extends Giorno {
   nonCorrente: boolean;
@@ -53,19 +54,52 @@ export class EventiComponent implements OnInit {
     { img: 'logo.png', label: 'Bottone 6', linkEsterno: 'https://www.example6.com' }
   ];
 
-  constructor(private http: HttpClient, public dialog: MatDialog) { }
+  constructor(private http: HttpClient, public dialog: MatDialog, public eventoSelezionatoService: EventoSelezionatoService) { }
 
   ngOnInit() {
-    this.http.get<Evento[]>('assets/eventi.json').subscribe(data => {
-      this.eventi = data;
-      this.TrovaMesiDaVisualizzare();
+    const eventoSelezionato = this.eventoSelezionatoService.getEventoSelezionato();
+
+    if (eventoSelezionato) {
+      // Se c'è un evento selezionato, usa i suoi dettagli
+      this.meseCorrente = eventoSelezionato.mese - 1; // Mese è da 0 a 11
+      this.annoCorrente = eventoSelezionato.anno;
+    } else {
+      // Altrimenti, usa la data corrente
       const dataOdierna = new Date();
       this.meseCorrente = dataOdierna.getMonth();
       this.annoCorrente = dataOdierna.getFullYear();
+    }
+
+    this.http.get<Evento[]>('assets/eventi.json').subscribe(data => {
+      this.eventi = data;
+      this.TrovaMesiDaVisualizzare();
       this.giornoDefault = `${this.listaMesi[this.meseCorrente]} ${this.annoCorrente}`;
       this.GeneraGiorniDelMese(this.meseCorrente, this.annoCorrente);
+
+      // Se c'è un evento selezionato, apri la modale
+      if (eventoSelezionato) {
+        const giorno = eventoSelezionato.giorno;
+        const mese = eventoSelezionato.mese - 1; // Mese è da 0 a 11
+        const anno = eventoSelezionato.anno;
+        const eventiDelGiorno = this.eventi.filter(e => {
+          const dataEvento = new Date(e.data);
+          return (
+            dataEvento.getDate() === giorno &&
+            dataEvento.getMonth() === mese &&
+            dataEvento.getFullYear() === anno
+          );
+        });
+
+        if (eventiDelGiorno.length > 0) {
+          this.apriModal(giorno, mese, anno, eventiDelGiorno);
+        }
+      }
     });
+
+    // Dopo aver utilizzato il dato, puliamo il servizio
+    this.eventoSelezionatoService.clearEventoSelezionato();
   }
+
 
   TrovaMesiDaVisualizzare() {
     this.listaMesi = [

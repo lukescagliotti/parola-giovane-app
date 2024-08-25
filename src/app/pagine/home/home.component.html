@@ -5,6 +5,7 @@
       class="slide"
       [ngClass]="{'active': i === currentIndex}"
       [ngStyle]="{'background-image': 'url(' + evento.imagePath + ')'}"
+      (click)="navigateToEvent(evento)"
     >
       <div class="overlay">
         <div class="event-details">
