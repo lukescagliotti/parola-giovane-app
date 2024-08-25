@@ -1,0 +1,110 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #4B0082; /* Viola */
+  color: white;
+  padding: 20px;
+}
+
+.footer-left {
+  max-width: 50%;
+}
+
+.footer-left .logo {
+  margin-bottom: 15px;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer-text p {
+  margin: 0;
+  font-size: 16px; /* Font più grande */
+}
+
+.footer-text p:first-child {
+  font-weight: bold; /* Grassetto per la prima frase */
+}
+
+.footer-text p:last-child {
+  font-style: italic; /* Corsivo per la seconda frase */
+}
+
+.footer-contacts {
+  margin-top: 20px;
+}
+
+.footer-contacts h3 {
+  font-size: 18px; /* Font più grande per i titoli */
+  font-weight: bold; /* Grassetto per i titoli */
+  text-transform: uppercase; /* Maiuscolo per i titoli */
+  margin-bottom: 10px;
+}
+
+.footer-contacts p {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 16px; /* Font più grande */
+}
+
+.footer-contacts a {
+  color: white;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.footer-contacts .icon-envelope::before,
+.footer-contacts .icon-home::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.footer-contacts .icon-envelope::before {
+  background: url('https://img.icons8.com/fluency/48/000000/email-open.png') no-repeat center;
+  background-size: contain;
+  filter: brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(700%) hue-rotate(7deg) brightness(99%) contrast(106%); /* Colore arancione */
+}
+
+.footer-contacts .icon-home::before {
+  background: url('https://img.icons8.com/fluency/48/000000/home.png') no-repeat center;
+  background-size: contain;
+  filter: brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(700%) hue-rotate(7deg) brightness(99%) contrast(106%); /* Colore arancione */
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-right h3 {
+  font-size: 18px; /* Font più grande per i titoli */
+  font-weight: bold; /* Grassetto per i titoli */
+  text-transform: uppercase; /* Maiuscolo per i titoli */
+  margin-bottom: 10px;
+}
+
+.sponsor-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sponsor-buttons button {
+  background-color: #FFA500; /* Arancione */
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.sponsor-buttons button:hover {
+  background-color: #FF8C00; /* Arancione scuro */
+}
