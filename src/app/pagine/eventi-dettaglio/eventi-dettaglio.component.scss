@@ -9,6 +9,7 @@
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
+  font-size: 1em; /* Font-size standard per desktop */
 }
 
 .calendar-wrapper {
@@ -149,4 +150,51 @@
 
 .bottoni-azione button:hover {
   background-color: #8e24aa;
+}
+
+@media only screen and (max-width: 768px) {
+  .modal-container {
+    padding: 15px;
+    max-width: 100%;
+    height: 100%;
+    font-size: 0.9em; /* Font-size ridotto per mobile */
+    border-radius: 12px;
+  }
+
+  .calendar-wrapper {
+    height: 70%;
+    margin-bottom: 15px;
+  }
+
+  .ore-colonna {
+    width: 40px;
+    padding-top: 20px;
+  }
+
+  .ora {
+    font-size: 0.75em; /* Font-size più piccolo per le ore su mobile */
+  }
+
+  .evento-card {
+    font-size: 0.75em; /* Font-size più piccolo per gli eventi su mobile */
+    padding: 8px; /* Ridotto il padding per adattarsi meglio al mobile */
+  }
+
+  .card-bottoni {
+    padding: 15px;
+  }
+
+  .aggiungi-calendario p {
+    font-size: 15px;
+  }
+
+  .icona-container img {
+    width: 35px; /* Immagini più piccole per mobile */
+  }
+
+  .bottoni-azione button {
+    width: 100px; /* Bottoni leggermente più piccoli su mobile */
+    padding: 8px 12px;
+    font-size: 0.8em;
+  }
 }

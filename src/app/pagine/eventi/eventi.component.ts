@@ -4,9 +4,10 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { Giorno } from './giorno.model';
 import { EventiDettaglioComponent } from '../eventi-dettaglio/eventi-dettaglio.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog'; // Importa MatDialog
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { Evento } from '../../models/evento.model';
 import { EventoSelezionatoService } from '../../Services/evento-selezionato.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 interface GiornoEsteso extends Giorno {
   nonCorrente: boolean;
@@ -54,14 +55,19 @@ export class EventiComponent implements OnInit {
     { img: 'logo.png', label: 'Bottone 6', linkEsterno: 'https://www.example6.com' }
   ];
 
-  constructor(private http: HttpClient, public dialog: MatDialog, public eventoSelezionatoService: EventoSelezionatoService) { }
+  constructor(
+    private http: HttpClient,
+    public dialog: MatDialog,
+    public eventoSelezionatoService: EventoSelezionatoService,
+    private breakpointObserver: BreakpointObserver
+  ) {}
 
   ngOnInit() {
     const eventoSelezionato = this.eventoSelezionatoService.getEventoSelezionato();
 
     if (eventoSelezionato) {
       // Se c'è un evento selezionato, usa i suoi dettagli
-      this.meseCorrente = eventoSelezionato.mese - 1; // Mese è da 0 a 11
+      this.meseCorrente = eventoSelezionato.mese - 1;
       this.annoCorrente = eventoSelezionato.anno;
     } else {
       // Altrimenti, usa la data corrente
@@ -95,8 +101,6 @@ export class EventiComponent implements OnInit {
         }
       }
     });
-
-    // Dopo aver utilizzato il dato, puliamo il servizio
     this.eventoSelezionatoService.clearEventoSelezionato();
   }
 
@@ -233,7 +237,7 @@ END:VCALENDAR
   }
 
   apriModal(giorno: number, mese: number, anno: number, eventi: Evento[]) {
-    const dialogRef = this.dialog.open(EventiDettaglioComponent, {
+    const dialogConfig = {
       width: '50%',
       height: '70%',
       data: {
@@ -242,10 +246,24 @@ END:VCALENDAR
         anno,
         eventi
       }
-    });
+    };
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('Modal chiusa', result);
+    this.breakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+      if (result.matches) {
+        // Dimensioni per dispositivi mobili
+        dialogConfig.width = '95%';
+        dialogConfig.height = '85%';
+      } else {
+        // Dimensioni per desktop o tablet
+        dialogConfig.width = '50%';
+        dialogConfig.height = '70%';
+      }
+
+      const dialogRef = this.dialog.open(EventiDettaglioComponent, dialogConfig);
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('Modal chiusa', result);
+      });
     });
   }
 
