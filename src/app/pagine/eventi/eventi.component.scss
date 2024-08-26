@@ -1,183 +1,264 @@
 .my-10 {
-    margin: 10px 0;
-  }
+  margin: 10px 0;
+}
 
-  .flex {
-    display: flex;
-  }
+.flex {
+  display: flex;
+}
 
-  .justify-center {
-    justify-content: flex-start;
-  }
+.justify-center {
+  justify-content: flex-start;
+}
 
+.mese-container {
+  width: 70%;
+}
+
+.mese-selettore {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  padding-left: 0.8%; /* Padding a sinistra per l'intera selezione del mese */
+  padding-right: 0.8%; /* Padding a destra per l'intera selezione del mese */
+}
+
+.mese-selettore .freccia {
+  flex: 0 0 auto;
+  padding: 0.8%; /* Padding per le frecce */
+}
+
+.mese-selettore .mese {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 0.8%; /* Padding per il mese */
+}
+
+.mese-selettore button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(7, 14%);
+  gap: 5px;
+  width: 99.2%; /* Riduce la larghezza totale per compensare il padding */
+  padding-left: 0.8%; /* Padding a sinistra per il container */
+}
+
+.giorni, .cubo {
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.cubo {
+  text-align: left;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  position: relative;
+  height: 150px;
+}
+
+.cubo.grigio {
+  background-color: #e0e0e0;
+}
+
+.cubo .numero-giorno {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.cubo .contenuto-giorno {
+  font-size: 0.9em;
+}
+
+.cubo .contenuto-eventi {
+  margin-top: 10px;
+}
+
+.evento-card {
+  background-color: #ffebcd;
+  color: #4B0082;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9em;
+}
+
+.evento-card::before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: #FFA500;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.evento-card:hover {
+  cursor: pointer;
+  background-color: #FFD700;
+}
+
+.bottoni-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.bottoni-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bottone {
+  margin-bottom: 10px;
+  background-color: #FFA500;
+  color: #4B0082;
+  width: 80%;
+  border: 1px solid #4B0082;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 0.9em;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  position: relative;
+}
+
+.bottone a {
+  text-decoration: none;
+  color: #4B0082;
+  font-weight: bold;
+  padding: 10px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.bottone a:hover {
+  text-decoration: underline;
+}
+
+.bottone-img {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 10px;
+  object-fit: contain;
+}
+
+.blue-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: blue;
+  border-radius: 50%;
+  margin-left: 5px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media only screen and (max-width: 768px) {
   .mese-container {
-    width: 70%;
+    width: 100%;
+  }
+
+  .bottoni-container {
+    width: 100%;
+    margin-top: 20px;
+    order: 2;
   }
 
   .mese-selettore {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    padding-left: 0.8%; /* Padding a sinistra per l'intera selezione del mese su mobile */
+    padding-right: 0.8%; /* Padding a destra per l'intera selezione del mese su mobile */
   }
 
   .mese-selettore .freccia {
-    flex: 0 0 auto;
+    font-size: 1.2em;
+    padding: 0.8%; /* Padding per le frecce su mobile */
   }
 
   .mese-selettore .mese {
-    flex: 1 1 auto;
-    text-align: center;
-  }
-
-  .mese-selettore button {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0.8%; /* Padding per il mese su mobile */
   }
 
   .container {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    width: 100%;
+    grid-template-columns: repeat(7, 13.5%);
+    gap: 2px;
+    width: 99.2%; /* Riduce la larghezza totale per compensare il padding */
+    padding-left: 0.8%; /* Padding a sinistra per il container su mobile */
   }
 
-  .giorni, .cubo {
-    text-align: center;
-    padding: 10px;
-    box-sizing: border-box;
+  .giorni {
+    font-size: 0.8em;
   }
 
   .cubo {
-    text-align: left;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    position: relative;
-    height: 150px;
+    height: 100px;
+    font-size: 0.7em;
+    padding: 5px;
   }
 
-  .cubo.grigio {
-    background-color: #e0e0e0;
-  }
-
-  .cubo .numero-giorno {
-    font-weight: bold;
+  .bottoni-container h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
   }
 
-  .cubo .contenuto-giorno {
-    font-size: 0.9em;
-  }
-
-  .cubo .contenuto-eventi {
-    margin-top: 10px;
-  }
-
-  .evento-card {
-    background-color: #ffebcd; /* Colore arancione chiaro */
-    color: #4B0082; /* Testo viola */
-    padding: 5px;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    position: relative;
-  }
-
-  .evento-card::before {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 4px;
-    background-color: #FFA500;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-
-  .evento-card:hover {
-    cursor: pointer;
-    background-color: #FFD700;
-  }
-
-
-  .bottoni-container {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-    box-sizing: border-box;
-  }
-
-  .bottoni-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
   .bottone {
-    margin-bottom: 10px;
-    background-color: #FFA500;
-    color: #4B0082;
-    width: 80%;
-    border: 1px solid #4B0082;
-    text-align: center;
-    border-radius: 5px;
-    font-size: 0.9em;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 60px;
-    position: relative;
-  }
-
-  .bottone a {
-    text-decoration: none;
-    color: #4B0082;
-    font-weight: bold;
-    padding: 10px;
-    flex-grow: 1;
-    text-align: center;
-  }
-
-  .bottone a:hover {
-    text-decoration: underline;
+    width: 100%;
+    height: 50px;
+    font-size: 0.8em;
   }
 
   .bottone-img {
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    left: 10px;
-    object-fit: contain;
+    width: 30px;
+    height: 30px;
   }
 
-  .blue-dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: blue;
-    border-radius: 50%;
-    margin-left: 5px;
-    animation: pulse 1s infinite;
+  .giorni, .cubo {
+    padding: 5px;
   }
 
-  @keyframes pulse {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.5);
-    }
-    100% {
-      transform: scale(1);
-    }
+  .evento-card {
+    font-size: 0.75em;
   }
 
+  .flex {
+    flex-direction: column;
+  }
+}
