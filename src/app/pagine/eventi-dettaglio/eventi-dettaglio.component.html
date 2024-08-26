@@ -12,14 +12,17 @@
         <div *ngFor="let ora of oreGiornaliere" class="linea-ora"></div>
         <div *ngFor="let evento of data.eventi"
              class="evento-card"
+             [ngClass]="{'all-day': evento.giornataIntera}"
              [ngStyle]="{
-               top: calcolaPosizioneOrario(evento.orarioInizio) + 'px',
-               height: calcolaDurataEvento(evento.orarioInizio, evento.orarioFine) + 'px'
+               top: evento.giornataIntera ? '0px' : calcolaPosizioneOrario(evento.orarioInizio) + 'px',
+               height: evento.giornataIntera ? 'calc(100% - 20px)' : calcolaDurataEvento(evento.orarioInizio, evento.orarioFine) + 'px'
              }">
-          <strong>{{ evento.titolo }}</strong>
-          <span *ngIf="evento.orarioInizio && evento.orarioFine" class="orario-parziale">({{ evento.orarioInizio }} - {{ evento.orarioFine }})</span>
-          <p>{{ evento.descrizione }}</p>
-          <p><em>{{ evento.luogo }}</em></p>
+          <div class="contenuto">
+            <strong>{{ evento.titolo }}</strong>
+            <span *ngIf="evento.orarioInizio && evento.orarioFine" class="orario-parziale">({{ evento.orarioInizio }} - {{ evento.orarioFine }})</span>
+            <p>{{ evento.descrizione }}</p>
+            <p><em>{{ evento.luogo }}</em></p>
+          </div>
         </div>
       </div>
     </div>

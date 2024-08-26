@@ -9,7 +9,7 @@
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  font-size: 1em; /* Font-size standard per desktop */
+  font-size: 1em;
 }
 
 .calendar-wrapper {
@@ -81,6 +81,17 @@
   max-width: calc(100% - 10px);
 }
 
+.evento-card.all-day {
+  top: 240px; /* Posiziona l'inizio dell'evento alle 8:00 (8*30px) */
+  height: calc(100% - 240px); /* Estende l'evento fino a fine giornata */
+  background-color: #ffcc80;
+  border-left-color: #ab47bc;
+}
+
+.evento-card .contenuto {
+  position: relative;
+}
+
 .evento-card strong {
   color: #4e342e;
   font-size: 1em;
@@ -111,23 +122,26 @@
 .aggiungi-calendario {
   text-align: center;
   margin-bottom: 20px;
-  p {
-    font-size: 17px;
-    line-height: 150%;
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  .icona-container {
-    display: flex;
-    justify-content: center;
-    img {
-      width: 45px;
-      margin: 0 5px;
-      cursor: pointer;
-      max-width: 100%;
-    }
-  }
+}
+
+.aggiungi-calendario p {
+  font-size: 17px;
+  line-height: 150%;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.icona-container {
+  display: flex;
+  justify-content: center;
+}
+
+.icona-container img {
+  width: 45px;
+  margin: 0 5px;
+  cursor: pointer;
+  max-width: 100%;
 }
 
 .bottoni-azione {
@@ -152,12 +166,13 @@
   background-color: #8e24aa;
 }
 
+/* Responsività per dispositivi mobili */
 @media only screen and (max-width: 768px) {
   .modal-container {
     padding: 15px;
     max-width: 100%;
     height: 100%;
-    font-size: 0.9em; /* Font-size ridotto per mobile */
+    font-size: 0.9em;
     border-radius: 12px;
   }
 
@@ -172,12 +187,12 @@
   }
 
   .ora {
-    font-size: 0.75em; /* Font-size più piccolo per le ore su mobile */
+    font-size: 0.75em;
   }
 
   .evento-card {
-    font-size: 0.75em; /* Font-size più piccolo per gli eventi su mobile */
-    padding: 8px; /* Ridotto il padding per adattarsi meglio al mobile */
+    font-size: 0.75em;
+    padding: 8px;
   }
 
   .card-bottoni {
@@ -189,11 +204,11 @@
   }
 
   .icona-container img {
-    width: 35px; /* Immagini più piccole per mobile */
+    width: 35px;
   }
 
   .bottoni-azione button {
-    width: 100px; /* Bottoni leggermente più piccoli su mobile */
+    width: 100px;
     padding: 8px 12px;
     font-size: 0.8em;
   }
