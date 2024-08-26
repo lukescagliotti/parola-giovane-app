@@ -1,53 +1,77 @@
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  background-color: #4B0082; /* Viola */
+  background-color: #4B0082;
   color: white;
   padding: 20px;
 }
 
-.footer-left {
-  max-width: 50%;
+.footer-top {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
-.footer-left .logo {
-  margin-bottom: 15px;
+.logo-and-text {
+  display: flex;
+  align-items: center;
 }
 
 .logo-img {
-  max-width: 100%;
+  max-width: 150px;
   height: auto;
+  margin-right: 20px;
 }
 
-.footer-text p {
-  margin: 0;
-  font-size: 16px; /* Font più grande */
+.footer-text {
+  font-size: 18px;
 }
 
 .footer-text p:first-child {
-  font-weight: bold; /* Grassetto per la prima frase */
+  font-weight: bold;
 }
 
 .footer-text p:last-child {
-  font-style: italic; /* Corsivo per la seconda frase */
+  font-style: italic;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
 }
 
 .footer-contacts {
-  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.footer-sponsors {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-contacts h3 {
-  font-size: 18px; /* Font più grande per i titoli */
-  font-weight: bold; /* Grassetto per i titoli */
-  text-transform: uppercase; /* Maiuscolo per i titoli */
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
   margin-bottom: 10px;
+  align-self: flex-end;
+}
+
+.footer-sponsors h3 {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  align-self: flex-start;
 }
 
 .footer-contacts p {
   display: flex;
   align-items: center;
   margin: 10px 0;
-  font-size: 16px; /* Font più grande */
+  font-size: 16px;
 }
 
 .footer-contacts a {
@@ -56,55 +80,32 @@
   margin-left: 5px;
 }
 
-.footer-contacts .icon-envelope::before,
-.footer-contacts .icon-home::before {
-  content: '';
-  display: inline-block;
-  width: 20px;
-  height: 20px;
+.footer-contacts .icon-envelope,
+.footer-contacts .icon-home {
+  color: #FFA500;
   margin-right: 10px;
-}
-
-.footer-contacts .icon-envelope::before {
-  background: url('https://img.icons8.com/fluency/48/000000/email-open.png') no-repeat center;
-  background-size: contain;
-  filter: brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(700%) hue-rotate(7deg) brightness(99%) contrast(106%); /* Colore arancione */
-}
-
-.footer-contacts .icon-home::before {
-  background: url('https://img.icons8.com/fluency/48/000000/home.png') no-repeat center;
-  background-size: contain;
-  filter: brightness(0) saturate(100%) invert(32%) sepia(100%) saturate(700%) hue-rotate(7deg) brightness(99%) contrast(106%); /* Colore arancione */
-}
-
-.footer-right {
-  text-align: right;
-}
-
-.footer-right h3 {
-  font-size: 18px; /* Font più grande per i titoli */
-  font-weight: bold; /* Grassetto per i titoli */
-  text-transform: uppercase; /* Maiuscolo per i titoli */
-  margin-bottom: 10px;
 }
 
 .sponsor-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  max-width: 30ch;
 }
 
 .sponsor-buttons button {
-  background-color: #FFA500; /* Arancione */
+  background-color: #FFA500;
   color: white;
   border: none;
-  padding: 10px;
+  padding: 10px 15px;
   cursor: pointer;
   font-size: 14px;
   border-radius: 5px;
   transition: background-color 0.3s;
+  white-space: nowrap;
+  //text-shadow: -1px -1px 0 #4B0082, 1px -1px 0 #4B0082, -1px 1px 0 #4B0082, 1px 1px 0 #4B0082;
 }
 
 .sponsor-buttons button:hover {
-  background-color: #FF8C00; /* Arancione scuro */
+  background-color: #FF8C00;
 }
