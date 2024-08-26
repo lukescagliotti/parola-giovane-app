@@ -52,17 +52,6 @@
 .eventi-colonna {
   flex-grow: 1;
   position: relative;
-  background-color: #fff;
-  border-left: 1px solid #ddd;
-  box-sizing: border-box;
-}
-
-.linea-ora {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background-color: #ddd;
 }
 
 .evento-card {
@@ -78,14 +67,16 @@
   font-size: 0.85em;
   z-index: 10;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  max-width: calc(100% - 10px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .evento-card.all-day {
-  top: 240px; /* Posiziona l'inizio dell'evento alle 8:00 (8*30px) */
-  height: calc(100% - 240px); /* Estende l'evento fino a fine giornata */
-  background-color: #ffcc80;
-  border-left-color: #ab47bc;
+  top: 0; /* Inizia dall'inizio della colonna */
+  height: 100%; /* Occupa l'intera altezza della colonna */
+  background-color: #ffcc80; /* Colore dell'evento */
+  border-left-color: #ab47bc; /* Colore del bordo dell'evento */
 }
 
 .evento-card .contenuto {
