@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4a261; /* Arancione chiaro */
+  background-color: #fff5e1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,52 +12,38 @@ body {
 }
 
 .contact-page {
-  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  align-items: center;
+  justify-items: center;
   width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr; /* Logo centrale e griglia */
+  padding: 10vh 20px 5vh;
+  box-sizing: border-box;
+  background-color: #fff5e1;
 }
 
 .central-logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  border: 10px solid #4B0082; /* Bordo viola */
-  overflow: hidden;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  grid-row: 2;
+  width: 70%;
+  max-width: 800px;
+  height: auto;
+  margin: 0 auto;
 }
 
 .central-logo img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-
-.central-logo a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
-  height: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .logos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  grid-template-rows: repeat(auto-fit, 80px);
-  gap: 20px;
-  padding: 50px;
-  justify-items: center;
-  align-items: center;
+  grid-template-columns: repeat(6, auto);
+  gap: 7%; /* Aumentato il gap tra i bottoni */
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .logos-grid a {
@@ -80,5 +66,23 @@ body {
 }
 
 .logos-grid a:hover img {
-  transform: scale(1.1); /* Zoom maggiore al passaggio del mouse */
+  transform: scale(1.1);
+}
+
+/* Media query per schermi piccoli */
+@media (max-width: 768px) {
+  .central-logo {
+    width: 90%;
+    max-width: none;
+  }
+
+  .logos-grid {
+    grid-template-columns: repeat(3, auto);
+    gap: 2%; /* Aumentato anche il gap per schermi piccoli */
+  }
+
+  .logos-grid a {
+    width: 60px;
+    height: 60px;
+  }
 }
