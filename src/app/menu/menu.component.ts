@@ -13,7 +13,7 @@ export class MenuComponent {
 
   meseCorrente: number = 0;
   annoCorrente: number = new Date().getFullYear();
-
+  isMenuOpen = false;
 
   @ViewChild('indicator') indicator!: ElementRef;
 
@@ -23,7 +23,7 @@ export class MenuComponent {
     this.route.queryParams.subscribe(params => {
       const mese = params['mese'];
       if (mese) {
-        this.meseCorrente = parseInt(mese, 10) - 1; // -1 perché i mesi in JavaScript sono 0-indexed
+        this.meseCorrente = parseInt(mese, 10) - 1;
       }
     });
   }
@@ -53,5 +53,13 @@ export class MenuComponent {
     indicator.style.left = `${rect.left - parentRect.left}px`;
     indicator.style.top = `${rect.top - parentRect.top}px`;
     indicator.style.height = `${rect.height}px`;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 }

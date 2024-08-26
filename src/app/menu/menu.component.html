@@ -2,7 +2,8 @@
   <a routerLink="/home">
     <img src="assets/logo.png" alt="Logo" class="logo">
   </a>
-  <ul class="menu-items">
+  <button class="menu-toggle" (click)="toggleMenu()">&#9776;</button> <!-- Bottone per aprire il menu -->
+  <ul class="menu-items" [ngClass]="{'open': isMenuOpen}">
     <div class="selection-indicator" #indicator></div>
     <li><a routerLink="/eventi" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Eventi</a></li>
     <li><a routerLink="/chi-siamo" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Chi Siamo</a></li>
