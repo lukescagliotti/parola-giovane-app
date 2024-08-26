@@ -92,7 +92,7 @@
     display: block;
     width: 100%;
     height: 4px;
-    background-color: #FFA500; /* Linea arancione */
+    background-color: #FFA500;
     position: absolute;
     top: 0;
     left: 0;
@@ -102,7 +102,7 @@
 
   .evento-card:hover {
     cursor: pointer;
-    background-color: #FFD700; /* Colore arancione leggermente più scuro al passaggio del mouse */
+    background-color: #FFD700;
   }
 
 
@@ -122,8 +122,8 @@
 
   .bottone {
     margin-bottom: 10px;
-    background-color: #FFA500; /* Sfondo arancione, trovare hex giusto */
-    color: #4B0082; /* Testo viola, trovare hex giusto */
+    background-color: #FFA500;
+    color: #4B0082;
     width: 80%;
     border: 1px solid #4B0082;
     text-align: center;

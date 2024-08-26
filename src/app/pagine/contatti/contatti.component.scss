@@ -40,7 +40,7 @@ body {
 .logos-grid {
   display: grid;
   grid-template-columns: repeat(6, auto);
-  gap: 7%; /* Aumentato il gap tra i bottoni */
+  gap: 7%;
   justify-content: center;
   width: 100%;
   max-width: 1200px;
@@ -78,7 +78,7 @@ body {
 
   .logos-grid {
     grid-template-columns: repeat(3, auto);
-    gap: 2%; /* Aumentato anche il gap per schermi piccoli */
+    gap: 2%;
   }
 
   .logos-grid a {
