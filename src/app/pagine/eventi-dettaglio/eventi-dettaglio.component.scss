@@ -72,15 +72,12 @@
   text-overflow: ellipsis;
 }
 
-.evento-card.all-day {
-  top: 0; /* Inizia dall'inizio della colonna */
-  height: 100%; /* Occupa l'intera altezza della colonna */
-  background-color: #ffcc80; /* Colore dell'evento */
-  border-left-color: #ab47bc; /* Colore del bordo dell'evento */
-}
-
 .evento-card .contenuto {
   position: relative;
+}
+
+.evento-card.all-day .contenuto {
+  top: 40%;
 }
 
 .evento-card strong {

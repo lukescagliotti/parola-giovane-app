@@ -66,7 +66,7 @@ export class EventiDettaglioComponent implements OnInit, AfterViewInit {
     return ((ore * 60 + minuti + offsetMinutes) * pixelsPerHour) / 60;
   }
 
-  calcolaDurataEvento(orarioInizio?: string, orarioFine?: string): number {
+  calcolaDurataEvento(orarioInizio?: string, orarioFine?: string, giornataintera?: boolean): number {
     if (!orarioInizio || !orarioFine) {
       return 0;
     }
