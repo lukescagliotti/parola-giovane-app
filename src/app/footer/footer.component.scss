@@ -35,19 +35,23 @@
 
 .footer-bottom {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 50px;
 }
 
-.footer-contacts {
+.footer-contacts,
+.footer-sponsors {
+  flex: 1;
   display: flex;
   flex-direction: column;
+}
+
+.footer-contacts {
   align-items: flex-end;
 }
 
 .footer-sponsors {
-  display: flex;
-  flex-direction: column;
   align-items: flex-start;
 }
 
@@ -56,7 +60,6 @@
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 10px;
-  align-self: flex-end;
 }
 
 .footer-sponsors h3 {
@@ -64,7 +67,6 @@
   font-weight: bold;
   text-transform: uppercase;
   margin-bottom: 10px;
-  align-self: flex-start;
 }
 
 .footer-contacts p {
@@ -103,9 +105,43 @@
   border-radius: 5px;
   transition: background-color 0.3s;
   white-space: nowrap;
-  //text-shadow: -1px -1px 0 #4B0082, 1px -1px 0 #4B0082, -1px 1px 0 #4B0082, 1px 1px 0 #4B0082;
 }
 
 .sponsor-buttons button:hover {
   background-color: #FF8C00;
+}
+
+/* Ottimizzazioni per schermi mobili */
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .footer-sponsors {
+    order: 1;
+    align-items: flex-start;
+  }
+
+  .footer-contacts {
+    order: 2;
+    align-items: flex-start;
+  }
+
+  .footer-contacts h3, .footer-sponsors h3 {
+    align-self: flex-start;
+  }
+
+  .sponsor-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .footer-contacts p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
 }

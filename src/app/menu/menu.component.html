@@ -1,16 +1,16 @@
 <nav class="menu">
-  <a routerLink="/home">
+  <a routerLink="/home" (click)="closeMenu()">
     <img src="assets/logo.png" alt="Logo" class="logo">
   </a>
-  <button class="menu-toggle" (click)="toggleMenu()">&#9776;</button> <!-- Bottone per aprire il menu -->
+  <button class="menu-toggle" (click)="toggleMenu()">&#9776;</button>
   <ul class="menu-items" [ngClass]="{'open': isMenuOpen}">
     <div class="selection-indicator" #indicator></div>
-    <li><a routerLink="/eventi" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Eventi</a></li>
-    <li><a routerLink="/chi-siamo" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Chi Siamo</a></li>
-    <li><a routerLink="/contatti" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Contatti</a></li>
-    <li><a routerLink="/progetti" routerLinkActive="active" (mouseenter)="moveIndicator($event)">Progetti</a></li>
+    <li><a routerLink="/eventi" routerLinkActive="active" (click)="closeMenu()" (mouseenter)="moveIndicator($event)">Eventi</a></li>
+    <li><a routerLink="/chi-siamo" routerLinkActive="active" (click)="closeMenu()" (mouseenter)="moveIndicator($event)">Chi Siamo</a></li>
+    <li><a routerLink="/contatti" routerLinkActive="active" (click)="closeMenu()" (mouseenter)="moveIndicator($event)">Contatti</a></li>
+    <li><a routerLink="/progetti" routerLinkActive="active" (click)="closeMenu()" (mouseenter)="moveIndicator($event)">Progetti</a></li>
     <li>
-      <a href="https://www.paypal.com/donate?hosted_button_id=YOUR_BUTTON_ID" target="_blank" (mouseenter)="moveIndicator($event)">
+      <a href="https://www.paypal.com/donate?hosted_button_id=YOUR_BUTTON_ID" target="_blank" (click)="closeMenu()" (mouseenter)="moveIndicator($event)">
         Sostienici
       </a>
     </li>
