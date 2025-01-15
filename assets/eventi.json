@@ -1,5 +1,65 @@
 [
   {
+      "data": "2025-01-20",
+      "titolo": "Live su Twitch",
+      "descrizione": "Unisciti a noi per una live su Twitch per discutere degli ultimi sviluppi.",
+      "orarioInizio": "18:00",
+      "orarioFine": "20:00",
+      "luogo": "https://twitch.tv/yourchannel",
+      "imagePath": "https://picsum.photos/800/400?random=1"
+  },
+  {
+      "data": "2025-01-12",
+      "titolo": "Inizio sviluppo del sito",
+      "descrizione": "La fase iniziale di sviluppo del nostro nuovo sito web.",
+      "giornataIntera": true,
+      "luogo": "Online",
+      "imagePath": "https://picsum.photos/800/400?random=2"
+  },
+  {
+      "data": "2025-01-04",
+      "titolo": "Riunione del Team",
+      "descrizione": "Riunione mensile del team per discutere i progressi e le prossime tappe.",
+      "orarioInizio": "10:00",
+      "orarioFine": "12:00",
+      "luogo": "Ufficio principale",
+      "imagePath": "https://picsum.photos/800/400?random=3"
+  },
+  {
+      "data": "2025-01-14",
+      "titolo": "Presentazione del Progetto",
+      "descrizione": "Presentazione ufficiale del progetto alla direzione.",
+      "orarioInizio": "15:00",
+      "orarioFine": "17:00",
+      "luogo": "Sala conferenze",
+      "imagePath": "https://picsum.photos/800/400?random=4"
+  },
+  {
+      "data": "2025-02-01",
+      "titolo": "Lancio della versione beta",
+      "descrizione": "Lancio ufficiale della versione beta del nostro prodotto.",
+      "giornataIntera": true,
+      "luogo": "Online",
+      "imagePath": "https://picsum.photos/800/400?random=5"
+  },
+  {
+      "data": "2025-02-15",
+      "titolo": "Festa di metà agosto",
+      "descrizione": "Una giornata di celebrazioni e relax per tutto il team.",
+      "giornataIntera": true,
+      "luogo": "Parco centrale",
+      "imagePath": "https://picsum.photos/800/400?random=6"
+  },
+  {
+      "data": "2025-02-24",
+      "titolo": "Incontro sul Progresso del Progetto",
+      "descrizione": "Incontro per discutere i progressi del progetto.",
+      "orarioInizio": "10:00",
+      "orarioFine": "13:00",
+      "luogo": "Ufficio",
+      "imagePath": "https://picsum.photos/800/400?random=7"
+  },
+  {
     "giornataIntera": false,
     "data": "2025-01-19",
     "titolo": "Conferenza di Apertura",
