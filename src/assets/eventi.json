@@ -9,7 +9,7 @@
       "imagePath": "https://picsum.photos/800/400?random=1"
   },
   {
-      "data": "2024-06-12",
+      "data": "2021-01-12",
       "titolo": "Inizio sviluppo del sito",
       "descrizione": "La fase iniziale di sviluppo del nostro nuovo sito web.",
       "giornataIntera": true,
@@ -17,7 +17,7 @@
       "imagePath": "https://picsum.photos/800/400?random=2"
   },
   {
-      "data": "2024-07-04",
+      "data": "2025-01-04",
       "titolo": "Riunione del Team",
       "descrizione": "Riunione mensile del team per discutere i progressi e le prossime tappe.",
       "orarioInizio": "10:00",
@@ -26,7 +26,7 @@
       "imagePath": "https://picsum.photos/800/400?random=3"
   },
   {
-      "data": "2024-07-14",
+      "data": "2025-01-14",
       "titolo": "Presentazione del Progetto",
       "descrizione": "Presentazione ufficiale del progetto alla direzione.",
       "orarioInizio": "15:00",
@@ -35,7 +35,7 @@
       "imagePath": "https://picsum.photos/800/400?random=4"
   },
   {
-      "data": "2024-08-01",
+      "data": "2025-02-01",
       "titolo": "Lancio della versione beta",
       "descrizione": "Lancio ufficiale della versione beta del nostro prodotto.",
       "giornataIntera": true,
@@ -43,7 +43,7 @@
       "imagePath": "https://picsum.photos/800/400?random=5"
   },
   {
-      "data": "2024-08-15",
+      "data": "2025-02-15",
       "titolo": "Festa di metà agosto",
       "descrizione": "Una giornata di celebrazioni e relax per tutto il team.",
       "giornataIntera": true,
@@ -51,7 +51,7 @@
       "imagePath": "https://picsum.photos/800/400?random=6"
   },
   {
-      "data": "2024-08-24",
+      "data": "2025-02-24",
       "titolo": "Incontro sul Progresso del Progetto",
       "descrizione": "Incontro per discutere i progressi del progetto.",
       "orarioInizio": "10:00",
