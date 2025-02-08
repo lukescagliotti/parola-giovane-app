@@ -1,4 +1,13 @@
 [
+    {
+      "data": "2025-02-20",
+      "titolo": "Live su Twitch",
+      "descrizione": "Unisciti a noi per una live su Twitch per discutere degli ultimi sviluppi.",
+      "orarioInizio": "18:00",
+      "orarioFine": "20:00",
+      "luogo": "https://twitch.tv/yourchannel",
+      "imagePath": "https://picsum.photos/800/400?random=1"
+  },
   {
       "data": "2025-01-20",
       "titolo": "Live su Twitch",
